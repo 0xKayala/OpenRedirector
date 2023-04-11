@@ -14,7 +14,7 @@ echo -e "\e[91m
 
 # Help menu
 display_help() {
-    echo -e "OpenRedirector is a powerful automation tool for detecting OpenRedirect vulnerabilities in web applications\n\n"
+    echo -e "OpenRedirector is a powerful automation tool for detecting Open Redirect vulnerabilities in web applications\n\n"
     echo -e "Usage: $0 [options]\n\n"
     echo "Options:"
     echo "  -h, --help              Display help information"
