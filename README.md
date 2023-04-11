@@ -11,7 +11,7 @@ So why wait? Download `OpenRedirector` today and start securing your web applica
 
 # Install OpenRedirector
 
-#### Note:
+## Note:
 Download the Tools `ParamSpider` and `OpenRedireX` in order to use our `OpenRedirector` Tool without any issues. Links of those tools are provided in the below section. Make sure you download the above tools into the same directory and check the below paths are similar on our `OpenRedirector` tool by opening it with any editor tool. If the paths are not matching then change them according to the tool paths of location on your pc as shown in the below example.
 
 ##### For Example:
