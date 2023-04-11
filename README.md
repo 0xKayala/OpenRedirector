@@ -18,9 +18,8 @@ Download the Tools `ParamSpider` and `OpenRedireX` in order to use our `OpenRedi
 
 ##### ParamSpider:
 python3 /path/to/ParamSpider/paramspider.py -d "$domain" -o /path/to/OpenRedirect/paramspider_output.txt
-
 ##### OpenRedireX:
-python3 /path/to/OpenRedireX/openredirex.py -l /path/to/OpenRedirect/paramspider_output.txt -p /path/to/OpenRedireX/payloads.txt (OpenRedireX)
+python3 /path/to/OpenRedireX/openredirex.py -l /path/to/OpenRedirect/paramspider_output.txt -p /path/to/OpenRedireX/payloads.txt
 
 ### Usage
 
