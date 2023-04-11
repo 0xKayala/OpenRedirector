@@ -4,7 +4,7 @@
 So why wait? Download our `OpenRedirector` today and start securing your web applications against open redirect vulnerabilities!
 
 ### Tools included:
-[ParamSpider](https://github.com/devanshbatham/ParamSpider) `git clone https://github.com/devanshbatham/ParamSpider.git`<br>
+[ParamSpider](https://github.com/devanshbatham/ParamSpider) `git clone https://github.com/devanshbatham/ParamSpider.git`<br><br>
 [OpenRedireX](https://github.com/devanshbatham/OpenRedireX) `git clone https://github.com/devanshbatham/OpenRedireX.git`
 
 # Screenshot
