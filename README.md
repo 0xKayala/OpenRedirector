@@ -1,7 +1,5 @@
 # OpenRedirector
-OpenRedirector is a powerful open redirect vulnerability scanner that helps you identify and exploit potential security weaknesses in your web applications. With RedirectRanger, you can quickly and easily test your website or web application for open redirect vulnerabilities, and identify URLs that could be exploited by attackers to redirect users to malicious sites.
-
-OpenRedirector supports a wide range of payloads and advanced techniques, making it a valuable tool for security researchers, developers, and penetration testers. Whether you're looking to assess the security of your own web applications or test the security of third-party sites, RedirectRanger is the perfect tool for the job.
+`OpenRedirector` is a powerful tool for detecting OpenRedirect vulnerabilities in web applications. It combines the capabilities of two powerful tools - "ParamSpider" for mining parameters from web archives and "OpenRedireX" for fuzzing OpenRedirect issues. With "OpenRedirector", you can easily scan any domain and quickly identify potential vulnerabilities, allowing you to take proactive steps to secure your web applications. Whether you are a security researcher or a web developer, `OpenRedirector` is an essential tool for your toolkit.
 
 So why wait? Download RedirectRanger today and start securing your web applications against open redirect vulnerabilities!
 
