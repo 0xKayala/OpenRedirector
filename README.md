@@ -1,7 +1,7 @@
 # OpenRedirector
 `OpenRedirector` is a powerful automation tool for detecting OpenRedirect vulnerabilities in web applications. It combines the capabilities of two powerful tools - `ParamSpider` for mining parameters from web archives and `OpenRedireX` for fuzzing OpenRedirect issues. With `OpenRedirector`, you can easily scan any domain and quickly identify potential vulnerabilities, allowing you to take proactive steps to secure your web applications. Whether you are a security researcher or a web developer, `OpenRedirector` is an essential tool for your toolkit.
 
-So why wait? Download `OpenRedirector` today and start securing your web applications against open redirect vulnerabilities!
+So why wait? Download our `OpenRedirector` today and start securing your web applications against open redirect vulnerabilities!
 
 `Tools included` - [ParamSpider](https://github.com/devanshbatham/ParamSpider) and [OpenRedireX](https://github.com/devanshbatham/OpenRedireX)
 
