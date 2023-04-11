@@ -6,6 +6,9 @@ So why wait? Download `OpenRedirector` today and start securing your web applica
 # Screenshot
 ![image](https://user-images.githubusercontent.com/16838353/231228421-61f82713-39f7-4593-8fef-a66d1dd7d758.png)
 
+# Output
+![image](https://user-images.githubusercontent.com/16838353/231231594-e9b2dd9e-bc9b-4bdc-824c-cd73e9aff118.png)
+
 # Install OpenRedirector
 
 
