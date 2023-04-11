@@ -12,7 +12,12 @@ So why wait? Download `OpenRedirector` today and start securing your web applica
 # Install OpenRedirector
 
 #### Note:
-Download the Tools `ParamSpider` and `OpenRedireX` in order to use `OpenRedirector` Tool. Links of those tools are provided in the below section.
+Download the Tools `ParamSpider` and `OpenRedireX` in order to use our `OpenRedirector` Tool without any issues. Links of those tools are provided in the below section. Make sure you download the above tools into the same directory and add or replace those paths in our tool as shown in the below example.
+
+##### For Example:
+
+python3 /path/to/ParamSpider/paramspider.py -d "$domain" -o /path/to/OpenRedirect/paramspider_output.txt (ParamSpider)
+python3 /path/to/OpenRedireX/openredirex.py -l /path/to/OpenRedirect/paramspider_output.txt -p /path/to/OpenRedireX/payloads.txt (OpenRedireX)
 
 ### Usage
 
