@@ -11,6 +11,8 @@ So why wait? Download `OpenRedirector` today and start securing your web applica
 
 # Install OpenRedirector
 
+####Note:
+Download the Tools `ParamSpider` and `OpenRedireX` in order to use this Tool. 
 
 ### Usage
 
@@ -31,13 +33,13 @@ Options:
   -d, --domain <domain>   Domain to scan for open redirects
 ```  
 
-#### Steps to Install:
+### Steps to Install:
 1. git clone https://github.com/0xKayala/OpenRedirector.git
 2. cd OpenRedirector
 3. chmod +x OpenRedirector.sh
 4. ./OpenRedirector.sh
 
-Tools included - `ParamSpider` and `OpenRedireX`
+Tools included - [ParamSpider](https://github.com/devanshbatham/ParamSpider) and [OpenRedireX](https://github.com/devanshbatham/OpenRedireX)
 
 Made by
 `Satya Prakash` | `0xKayala` \
