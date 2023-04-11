@@ -6,7 +6,29 @@ So why wait? Download `OpenRedirector` today and start securing your web applica
 # Screenshot
 ![image](https://user-images.githubusercontent.com/16838353/231228421-61f82713-39f7-4593-8fef-a66d1dd7d758.png)
 
-Steps to Install:
+# Install OpenRedirector
+
+
+### Usage
+
+```sh
+./OpenRedirector -h
+```
+
+This will display help for the tool. Here are the options it supports.
+
+
+```console
+OpenRedirector is a powerful automation tool for detecting OpenRedirect vulnerabilities in web applications
+
+Usage: ./OpenRedirect.sh [options]
+
+Options:
+  -h, --help              Display help information
+  -d, --domain <domain>   Domain to scan for open redirects
+```  
+
+#### Steps to Install:
 1. git clone https://github.com/0xKayala/OpenRedirector.git
 2. cd OpenRedirector
 3. chmod +x OpenRedirector.sh
