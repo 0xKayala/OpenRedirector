@@ -52,6 +52,13 @@ fi
 echo "Running ParamSpider on $domain"
 python3 /home/kali/ParamSpider/paramspider.py -d "$domain" -o /home/kali/OpenRedirector/paramspider_output.txt
 
+# Check if ParamSpider found any unique URLs
+unique_urls=$(grep -oP '(?<=\=)[^&]+' /home/kali/OpenRedirector/paramspider_output.txt | sort -u | wc -l)
+if [ $unique_urls -eq 0 ]; then
+    echo "No URLs Found"
+    exit 1
+fi
+
 # Step 4: Run the openredirex.py tool on the above text file
 echo "Running openredirex.py on paramspider_output.txt"
 python3 /home/kali/OpenRedireX/openredirex.py -l /home/kali/OpenRedirector/paramspider_output.txt -p /home/kali/OpenRedireX/payloads.txt
