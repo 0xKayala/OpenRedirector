@@ -37,7 +37,7 @@ This will display help for the tool. Here are the options it supports.
 ```console
 OpenRedirector is a powerful automation tool for detecting OpenRedirect vulnerabilities in web applications
 
-Usage: ./OpenRedirect.sh [options]
+Usage: ./OpenRedirector.sh [options]
 
 Options:
   -h, --help              Display help information
