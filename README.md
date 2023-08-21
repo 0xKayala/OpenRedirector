@@ -18,17 +18,11 @@ So why wait? Download our `OpenRedirector` today and start securing your web app
 ## Note:
 Download the Tools `ParamSpider` and `OpenRedireX` in order to use our `OpenRedirector` Tool without any issues. Links of those tools are provided in the above section. Make sure you download both the tools into the same directory and open `OpenRedirector.sh` file with any editor and check the paths are matching to the location of the tools `ParamSpider` and `OpenRedireX`. If the paths are not matching then change them according to the tool paths of location on your pc as shown in the below example.
 
-### For Example:
-
-#### ParamSpider:
-python3 /path/to/ParamSpider/paramspider.py -d "$domain" -o /path/to/OpenRedirector/paramspider_output.txt
-#### OpenRedireX:
-python3 /path/to/OpenRedireX/openredirex.py -l /path/to/OpenRedirector/paramspider_output.txt -p /path/to/OpenRedireX/payloads.txt
 
 ## Usage
 
 ```sh
-./OpenRedirector -h
+openredirector -h
 ```
 
 This will display help for the tool. Here are the options it supports.
@@ -37,7 +31,7 @@ This will display help for the tool. Here are the options it supports.
 ```console
 OpenRedirector is a powerful automation tool for detecting OpenRedirect vulnerabilities in web applications
 
-Usage: ./OpenRedirector.sh [options]
+Usage: openredirector [options]
 
 Options:
   -h, --help              Display help information
@@ -47,8 +41,9 @@ Options:
 ### Steps to Install:
 1. git clone https://github.com/0xKayala/OpenRedirector.git
 2. cd OpenRedirector
-3. chmod +x OpenRedirector.sh
-4. ./OpenRedirector.sh
+3. sudo chmod +x install.sh
+4. ./install.sh
+5. openredirector -h
 
 
 Made by
