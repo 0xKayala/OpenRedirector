@@ -80,7 +80,7 @@ fi
 
 # Step 4: Run the OpenRedireX tool on the above text file
 echo "Running OpenRedireX on $domain.txt"
-cat results/$domain.txt | openredirex -p $home_dir/openredirex/payloads.txt -k "FUZZ" -c 50
+cat results/$domain.txt | openredirex
 
 # Step 5: End with general message as the scan is completed
-echo "Scan is completed - Happy Fuzzing"
+echo "Scan is completed - Happy Hunting"
