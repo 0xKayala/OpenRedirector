@@ -72,10 +72,9 @@ fi
 echo "Running ParamSpider on $domain"
 paramspider -d "$domain"
 
-# Check if ParamSpider found any unique URLs
-unique_urls=$(grep -oP '(?<=\=)[^&]+' results/$domain.txt | sort -u | wc -l)
-if [ $unique_urls -eq 0 ]; then
-    echo "No URLs Found"
+# Check whether URLs were collected or not
+if [ ! -s results/$domain.txt ]; then
+    echo "No URLs Found. Exiting..."
     exit 1
 fi
 
