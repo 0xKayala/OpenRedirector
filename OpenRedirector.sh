@@ -42,6 +42,12 @@ if ! command -v openredirex &> /dev/null; then
     ./setup.sh
 fi
 
+# Check if httpx is installed, if not, install it
+if ! command -v httpx &> /dev/null; then
+    echo "Installing httpx..."
+    go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+fi
+
 # Step 1: Parse command line arguments
 while [[ $# -gt 0 ]]
 do
@@ -97,9 +103,9 @@ fi
 # Step 5: Run the OpenRedireX tool on the collected URLs
 echo "Running OpenRedireX on $domain.txt"
 if [ -n "$domain" ]; then
-    cat "output/$domain.txt" | openredirex
+    cat "output/$domain.txt" | httpx -silent -mc 200,301,302,403 | openredirex
 elif [ -n "$filename" ]; then
-    cat "$output_file" | openredirex
+    cat "$output_file" | httpx -silent -mc 200,301,302,403 | openredirex
 fi
 
 # Step 5: End with a general message as the scan is completed
