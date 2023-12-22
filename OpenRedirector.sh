@@ -1,16 +1,17 @@
 #!/bin/bash
 
 # ASCII art
-echo -e "\e[91m
-#   _____                 ______         _ _               _             
-#  |  _  |                | ___ \       | (_)             | |            
-#  | | | |_ __   ___ _ __ | |_/ /___  __| |_ _ __ ___  ___| |_ ___  _ __ 
-#  | | | | '_ \ / _ \ '_ \|    // _ \/ _\` | | '__/ _ \/ __| __/ _ \| '__|
-#  \ \_/ / |_) |  __/ | | | |\ \  __/ (_| | | | |  __/ (__| || (_) | |   
-#   \___/| .__/ \___|_| |_\_| \_\___|\__,_|_|_|  \___|\___|\__\___/|_|   
-#        | |                                                             
-#        |_|             Made by Satya Prakash (0xKayala)                                                
-\e[0m"
+echo -e "\e[91m"
+cat << "EOF"
+   ____                   ____           ___                __            
+  / __ \____  ___  ____  / __ \___  ____/ (_)_______  _____/ /_____  _____
+ / / / / __ \/ _ \/ __ \/ /_/ / _ \/ __  / / ___/ _ \/ ___/ __/ __ \/ ___/
+/ /_/ / /_/ /  __/ / / / _, _/  __/ /_/ / / /  /  __/ /__/ /_/ /_/ / /    
+\____/ .___/\___/_/ /_/_/ |_|\___/\__,_/_/_/   \___/\___/\__/\____/_/   v1.0.0  
+    /_/                                                                   
+                                     Made by Satya Prakash (0xKayala)                                                
+EOF
+echo -e "\e[0m"
 
 # Help menu
 display_help() {
@@ -18,7 +19,8 @@ display_help() {
     echo -e "Usage: $0 [options]\n\n"
     echo "Options:"
     echo "  -h, --help              Display help information"
-    echo "  -d, --domain <domain>   Domain to scan for open redirects"
+    echo "  -d, --domain <domain>   Domain to scan for open-redirect vulnerabilities"
+    echo "  -f, --file <filename>   File to scan for open-redirect vulnerabilities"
     exit 0
 }
 
@@ -26,11 +28,9 @@ display_help() {
 home_dir=$(eval echo ~$USER)
 
 # Check if ParamSpider is already cloned and installed
-if ! command -v paramspider &> /dev/null; then
-    echo "Installing ParamSpider..."
-    git clone https://github.com/devanshbatham/paramspider.git "$home_dir/paramspider"
-    cd "$home_dir/paramspider" || exit
-    pip install .
+if [ ! -d "$home_dir/ParamSpider" ]; then
+    echo "Cloning ParamSpider..."
+    git clone https://github.com/0xKayala/ParamSpider "$home_dir/ParamSpider"
 fi
 
 # Check if OpenRedireX is already cloned and installed
@@ -55,6 +55,11 @@ do
             shift
             shift
             ;;
+        -f|--file)
+            filename="$2"
+            shift
+            shift
+            ;;
         *)
             echo "Unknown option: $key"
             display_help
@@ -62,25 +67,40 @@ do
     esac
 done
 
-# Step 2: Ask the user to enter the domain name
-if [ -z "$domain" ]; then
-    echo "Enter the domain name: target.com"
-    read domain
+# Step 2: Ask the user to enter the domain name or specify the file
+if [ -z "$domain" ] && [ -z "$filename" ]; then
+    echo "Please provide a domain with -d or a file with -f option."
+    display_help
 fi
 
-# Step 3: Get the vulnerable parameters of the given domain name using ParamSpider tool and save the output into a text file
-echo "Running ParamSpider on $domain"
-paramspider -d "$domain"
+# Combined output file for all domains
+output_file="output/allurls.txt"
 
-# Check whether URLs were collected or not
-if [ ! -s results/$domain.txt ]; then
+# Step 3: Get the vulnerable parameters based on user input
+if [ -n "$domain" ]; then
+    echo "Running ParamSpider on $domain"
+    python3 "$home_dir/ParamSpider/paramspider.py" -d "$domain" --exclude png,jpg,gif,jpeg,swf,woff,gif,svg --level high --quiet -o "output/$domain.txt"
+elif [ -n "$filename" ]; then
+    echo "Running ParamSpider on URLs from $filename"
+    while IFS= read -r line; do
+        python3 "$home_dir/ParamSpider/paramspider.py" -d "$line" --exclude png,jpg,gif,jpeg,swf,woff,gif,svg --level high --quiet -o "output/$line.txt"
+        cat "output/$line.txt" >> "$output_file"  # Append to the combined output file
+    done < "$filename"
+fi
+
+# Step 4: Check whether URLs were collected or not
+if [ ! -s "output/$domain.txt" ] && [ ! -s "$output_file" ]; then
     echo "No URLs Found. Exiting..."
     exit 1
 fi
 
-# Step 4: Run the OpenRedireX tool on the above text file
+# Step 5: Run the OpenRedireX tool on the collected URLs
 echo "Running OpenRedireX on $domain.txt"
-cat results/$domain.txt | openredirex
+if [ -n "$domain" ]; then
+    cat "output/$domain.txt" | openredirex
+elif [ -n "$filename" ]; then
+    cat "$output_file" | openredirex
+fi
 
-# Step 5: End with general message as the scan is completed
+# Step 5: End with a general message as the scan is completed
 echo "Scan is completed - Happy Hunting"
